@@ -3,7 +3,7 @@
 Subrion is a **free open source content management system**
 that allows you to build websites for any purpose. Yes, from blog to corporate mega portal.
 
-## Hot to use this image
+## How to use this image
 
 ```console
 $ docker run —name some-subrion —link some-mysql:mysql -d intelliants/subrion
@@ -13,7 +13,7 @@ The following environment variables are also honored for configuring your Subrio
 
 * `-e SUBRION_DB_HOST=…` (defaults to the IP and port of the linked `mysql` container)
 * `-e SUBRION_DB_USER=…` (defaults to "root")
-* `-e SUBRION_DB_PASSWORD=…` (defaults to the value of the MYSQL_ROOT_PASSWORD environment variable from the linked `mysql` container)
+* `-e SUBRION_DB_PASSWORD=…` (defaults to the value of the `MYSQL_ROOT_PASSWORD` environment variable from the linked `mysql` container)
 * `-e SUBRION_DB_NAME=…` (defaults to "subrion")
 
 If the `SUBRION_DB_NAME` specified does not already exist on the given MySQL server, it will be created automatically upon startup of the `subrion`container, provided that the `SUBRION_DB_USER` specified has the necessary permissions to create it.
@@ -22,9 +22,12 @@ If the `SUBRION_DB_NAME` specified does not already exist on the given MySQL s
 $ docker run --name some-subrion --link some-mysql:mysql -p 8080:80 -d subrion
 ```
 
-If you'd like to use an external database instead of a linked `mysql`container, specify the hostname and port with `SUBRION_DB_HOST` along with the password in `SUBIRON_DB_PASSWORD` and the username in `SUBRION_DB_USER` (if it is something other than `root`):
+If you'd like to use an external database instead of a linked `mysql`container, specify the hostname and port with `SUBRION_DB_HOST` along with the password in `SUBRION_DB_PASSWORD` and the username in `SUBRION_DB_USER` (if it is something other than `root`):
 
-​	$ docker run --name some-subrion -e SUBRION_DB_HOST=10.1.2.3:3306 \    -e SUBRION_DB_USER=... -e SUBRION_DB_PASSWORD=... -d intelliants/subrion
+```console
+$ docker run --name some-subrion -e SUBRION_DB_HOST=10.1.2.3:3306 \ 
+    -e SUBRION_DB_USER=... -e SUBRION_DB_PASSWORD=... -d intelliants/subrion
+```
 
 ## … via docker-compose
 
