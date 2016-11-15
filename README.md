@@ -5,8 +5,17 @@ that allows you to build websites for any purpose. Yes, from blog to corporate 
 
 ## How to use this image
 
+Start up a MySQL container.
+
 ```console
-$ docker run —name some-subrion —link some-mysql:mysql -d intelliants/subrion
+$ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=secretpass -d mysql
+```
+
+For more information on MySQL containers, please refer to [this](https://hub.docker.com/_/mysql/).
+Then run:
+
+```console
+$ docker run --name some-subrion —-link some-mysql:mysql -d intelliants/subrion
 ```
 
 The following environment variables are also honored for configuring your Subrion instance:
