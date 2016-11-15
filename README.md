@@ -28,7 +28,7 @@ The following environment variables are also honored for configuring your Subrio
 If the `SUBRION_DB_NAME` specified does not already exist on the given MySQL server, it will be created automatically upon startup of the `subrion`container, provided that the `SUBRION_DB_USER` specified has the necessary permissions to create it.
 
 ```console
-$ docker run --name some-subrion --link some-mysql:mysql -p 8080:80 -d subrion
+$ docker run --name some-subrion --link some-mysql:mysql -p 8080:80 -d intelliants/subrion
 ```
 
 If you'd like to use an external database instead of a linked `mysql`container, specify the hostname and port with `SUBRION_DB_HOST` along with the password in `SUBRION_DB_PASSWORD` and the username in `SUBRION_DB_USER` (if it is something other than `root`):
