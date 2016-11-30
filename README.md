@@ -41,7 +41,7 @@ $ docker run --name some-subrion -e SUBRION_DB_HOST=10.1.2.3:3306 \
 The problem with this example is that we can't access the Subrion files easily, also each time we start the container, it will change its IP. But we can easily fix both of these issues.
 
 ```console
-docker run -d --name some-subrion --link some-mysql:mysql -p 127.0.0.2:8080:80 -v "$PWD/":/var/www/html intelliants/subrion
+$ docker run -d --name some-subrion --link some-mysql:mysql -p 127.0.0.2:8080:80 -v "$PWD/":/var/www/html intelliants/subrion
 ```
 We specified 127.0.0.2 as the IP for this container to avoid dynamic IP. -v "$PWD/":/var/www/html will map the two folders. By default, the container puts the Subrion files in the /var/www/html directory which is the filesystem inside the container (this is nothing to do with our local filesystem).
 Check out your current directory and you'll see that some additional files are there. So we recommended to run the command above in a dedicated empty directory, let it be `subrion`.
@@ -49,7 +49,7 @@ Check out your current directory and you'll see that some additional files are t
 If you're on Linux, you should change the permissions of the Subrion folder (the local folder) to writable. That's because the containers are created by the Docker daemon, a process that starts when the system boots (by the sudo user). To fix this execute:
 
 ```console
-sudo chmod -R 777 subrion
+$ sudo chmod -R 777 subrion
 ```
 
 You'll now have write access to these folders and you'll be good to go!
